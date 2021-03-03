@@ -11,11 +11,7 @@ describe("PersonList", () => {
   })
 
   it("Renders no li elements with no people exist", () => {
-    const people = []
-    const personListWrapper = shallow(<PersonList people={people} />)
-    const peopleListItems = personListWrapper.find("li")
-
-    expect(peopleListItems).toHaveLength(0)
+    expect(shallow(<PersonList people={[]} />).find("li")).toHaveLength(0)
   })
 
   it("Renders li elements 1 person", () => {
