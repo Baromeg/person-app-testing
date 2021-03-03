@@ -6,10 +6,10 @@ class App extends Component {
   state = { people: []}
   render() {
     return (
-        <div className='App'>
-          <PersonList />
-        </div>
-      )
+      <div className='App'>
+        <PersonList people={this.state.people} />
+      </div>
+    )
   }
 }
 
