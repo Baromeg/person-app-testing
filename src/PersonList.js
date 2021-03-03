@@ -1,9 +1,11 @@
 import React from "react"
 
-export default (props) => (
+export default ({  people = []  }) => (
   <ul>
-    {props.people
-      ? props.people.map((people, i) => <li key={i}></li>)
-      : undefined}
+    {people.map((person, i) => (
+    (
+        <li key={i}>{person.firstName }{person.lastName }</li>
+    )
+    ))}
   </ul>
 )
