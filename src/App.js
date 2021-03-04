@@ -1,6 +1,6 @@
 import React from "react"
-import Counter from ".Components/Counter"
 import "./App.css"
+import Counter from "./Components/Counter"
 import ToDoList from "./Components/ToDoList"
 
 const App = () => {

@@ -1,11 +1,12 @@
 import { render, screen } from "@testing-library/react"
 import App from "./App"
 import { mount, shallow } from "enzyme"
+import Counter from "./Components/Counter"
 
 describe("Counter Testing", () => {
   let wrapper
   beforeEach(() => {
-    wrapper = mount(<App />)
+    wrapper = mount(<Counter />)
 
   })
   test("Render the tile of counter", () => {
