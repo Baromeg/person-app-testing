@@ -1,13 +1,13 @@
 import React, { Component, useState } from "react"
+import Counter from "./Counter"
+import "./App.css"
 
-
-function App () {
-
-    return (
-      <div> Hello
-      </div>
-    )
-  }
-
+const App = () => {
+  return (
+    <div className='App'>
+      <Counter />
+    </div>
+  )
+}
 
 export default App
