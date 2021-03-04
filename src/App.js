@@ -1,16 +1,13 @@
 import React, { Component, useState } from "react"
-import PersonList from "./PersonList"
 
-class App extends Component {
-  // const [state, setstate] = useState({ })
-  state = { people: []}
-  render() {
+
+function App () {
+
     return (
-      <div className='App'>
-        <PersonList people={this.state.people} />
+      <div> Hello
       </div>
     )
   }
-}
 
-export default App;
+
+export default App
