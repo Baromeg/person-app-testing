@@ -7,6 +7,7 @@ const ToDoList = () => {
 
       <form>
         <label htmlFor='new-todo'>What needs to be done?</label>
+        <button>Add #1</button>
       </form>
     </div>
   )
