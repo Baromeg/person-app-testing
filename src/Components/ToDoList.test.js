@@ -3,11 +3,16 @@ import ReactDOM from "react-dom"
 import ToDoList from "./ToDoList"
 import { getQueriesForElement } from "@testing-library/react"
 
-test("Renders the correct contect", () => {
+const render = (component) => {
   const root = document.createElement("div")
-  ReactDOM.render(<ToDoList />, root)
+  ReactDOM.render(component, root)
+  return getQueriesForElement(root)
+}
 
-  const { getByText, getByLabelText } = getQueriesForElement(root)
+test("Renders the correct contect", () => {
+
+
+  const { getByText, getByLabelText } = render(<ToDoList />)
   // * Using ReactDOM
   // expect(root.querySelector("h1").textContent).toBe("TODOs")
   // expect(root.querySelector("label").textContent).toBe("What needs to be done?")
