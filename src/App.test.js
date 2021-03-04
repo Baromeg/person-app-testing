@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react"
-import Counter from "./Counter"
-import { shallow } from "enzyme"
+import App from "./App"
+import { mount, shallow } from "enzyme"
 
 describe("Counter Testing", () => {
   let wrapper
   beforeEach(() => {
-    wrapper = shallow(<Counter />)
+    wrapper = mount(<App />)
 
   })
   test("Render the tile of counter", () => {
@@ -30,6 +30,9 @@ describe("Counter Testing", () => {
     wrapper.find('#decrement-btn').simulate('click')
     expect(wrapper.find('#counter-value').text()).toBe('0')
   })
-  
+  test("Render the click event decrement counter value and stop at 0", () => {
+    wrapper.find("#decrement-btn").simulate("click")
+    expect(wrapper.find("#counter-value").text()).toBe("0")
+  })
   
 })
