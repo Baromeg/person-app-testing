@@ -1,13 +1,14 @@
 import React from "react"
-import ReactDOM from "react-dom"
 import ToDoList from "./ToDoList"
-import { getQueriesForElement } from "@testing-library/react"
+import { render, fireEvent } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 
-const render = (component) => {
-  const root = document.createElement("div")
-  ReactDOM.render(component, root)
-  return getQueriesForElement(root)
-}
+// * Manual Render
+// const render = (component) => {
+//   const root = document.createElement("div")
+//   ReactDOM.render(component, root)
+//   return getQueriesForElement(root)
+// }
 
 test("Renders the correct contect", () => {
 
@@ -23,6 +24,17 @@ test("Renders the correct contect", () => {
   // expect(getByText("Add #1")).not.toBeNull()
   // * Using Testing-Library the short way
   getByText("TODOs")
-  // getByLabelText("What needs to be done?")
+  getByLabelText("What needs to be done?")
   getByText("Add #1")
 })
+
+test('allows users to add items to their list', () => {
+  const { getByText, getByLabelText } = render(<ToDoList />)
+  const input = getByLabelText("What needs to be done?")
+  fireEvent.change(input, { target: { value: "RTL Presentation Slides" } })
+  fireEvent.click(getByText("Add #1"))
+
+  getByText("RTL Presentation Slides")
+  getByText("Add #2")
+})
+
